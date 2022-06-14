@@ -40,6 +40,16 @@ const Anounce: FC<ScreenProps> = ({ screenRef, isFirstOpened }) => {
 
         onScrollEnd();
     };
+
+    const handlers = {
+        onTouchStart: onTouchStart,
+        onTouchMove: onTouchMove,
+        onTouchEnd: onTouchEnd,
+        onMouseDown: onMouseDown,
+        onMouseMove: onMouseMove,
+        onMouseUp: onMouseUp,
+    };
+
     return (
         <div ref={screenRef} className={["screen", "anounce", isFirstOpened && "first_opened"].join(" ")}>
             <div className="bacteria bacteria_1_animate" />
@@ -102,16 +112,7 @@ const Anounce: FC<ScreenProps> = ({ screenRef, isFirstOpened }) => {
                         </div>
                     </div>
                     <div className="scrollbar">
-                        <div
-                            className="scrollbar__thumb"
-                            ref={scrollThumb}
-                            onTouchStart={onTouchStart}
-                            onTouchMove={onTouchMove}
-                            onTouchEnd={onTouchEnd}
-                            onMouseDown={onMouseDown}
-                            onMouseMove={onMouseMove}
-                            onMouseUp={onMouseUp}
-                        ></div>
+                        <div className="scrollbar__thumb" ref={scrollThumb} {...handlers}></div>
                     </div>
                 </div>
             </div>

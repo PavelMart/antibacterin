@@ -17,10 +17,9 @@ export const onScrollMove = (e: any, scrollText: React.RefObject<HTMLDivElement>
         currentPosition + diffY >= 0 &&
         currentPosition + diffY <= e.target.parentNode.clientHeight - e.target.clientHeight
     ) {
-        // console.log(e.target.parentNode.offsetParent);
-        const h = (scrollText.current.offsetHeight + e.target.offsetHeight) / e.target.parentNode.offsetParent.offsetHeight;
+        const proportion = (scrollText.current.offsetHeight + e.target.offsetHeight) / e.target.parentNode.offsetParent.offsetHeight;
         e.target.style.transform = `translateY(${currentPosition + diffY}px)`;
-        scrollText.current.style.transform = `translateY(-${(currentPosition + diffY) * h}px)`;
+        scrollText.current.style.transform = `translateY(-${(currentPosition + diffY) * proportion}px)`;
     }
 };
 

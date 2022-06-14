@@ -18,7 +18,7 @@
     position: absolute;
     left: 8.25rem;
     top: 3.2rem;
-    z-index: 1;
+    z-index: 2;
 
     padding-left: 5.875rem;
 
@@ -52,10 +52,11 @@
     height: 100%;
     position: absolute;
     top: 0;
-    padding: 0 5.625rem 0 8.75rem;
+    padding: 21.125rem 5.625rem 0 8.75rem;
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+    overflow: hidden;
 
     .h1 {
         font-family: "DINPro";
@@ -69,7 +70,6 @@
 .main {
     background-image: url("./assets/img/main/background.png");
     transform: translateX(0);
-    padding-top: 21.25rem;
 
     .bacteria_1_static {
         width: 26.75rem;
@@ -162,15 +162,6 @@
 
     &__text {
         position: relative;
-        font-size: 13.6rem;
-        line-height: 14.6rem;
-        font-family: "Gillroy";
-        font-weight: 300;
-        text-transform: uppercase;
-        letter-spacing: 0.5rem;
-        b {
-            font-weight: bold;
-        }
     }
 
     &__icon {
@@ -182,6 +173,7 @@
     background-image: url("./assets/img/anounce/background.png");
     transform: translateX(100vw);
     padding-top: 17rem;
+    z-index: 1;
 
     .bacteria {
         transform: translate(10rem, 10rem) scale(0, 0);
@@ -199,7 +191,7 @@
             top: 12.5rem;
             right: -60rem;
             background-image: url("./assets/img/anounce/bacteria_1.png");
-            animation: bacteria_5 3s ease;
+            animation: bacteria_5 2s ease;
         }
         .bacteria_2_animate {
             width: 91rem;
@@ -207,7 +199,7 @@
             top: 12rem;
             right: -36rem;
             background-image: url("./assets/img/anounce/bacteria_2.png");
-            animation: bacteria_5 3.5s ease;
+            animation: bacteria_5 2.5s ease;
         }
         .bacteria_3_animate {
             width: 52rem;
@@ -215,7 +207,7 @@
             top: 9.25rem;
             right: -12.5rem;
             background-image: url("./assets/img/anounce/bacteria_3.png");
-            animation: bacteria_5 5s ease;
+            animation: bacteria_5 3s ease;
         }
         .bacteria_4_animate {
             width: 91rem;
@@ -223,7 +215,7 @@
             top: 51.5rem;
             right: -74.5rem;
             background-image: url("./assets/img/anounce/bacteria_2.png");
-            animation: bacteria_5 3s ease;
+            animation: bacteria_5 2s ease;
         }
         .bacteria_5_animate {
             width: 41rem;
@@ -231,7 +223,7 @@
             bottom: 12rem;
             right: -23.5rem;
             background-image: url("./assets/img/anounce/bacteria_5.png");
-            animation: bacteria_5 3s ease;
+            animation: bacteria_5 2s ease;
         }
     }
 
@@ -247,7 +239,7 @@
             background-color: #fff;
             border-radius: 5rem;
             padding: 4rem;
-            box-shadow: 2rem 2rem 20rem rgba($color: #9db9c6, $alpha: 0.6);
+            box-shadow: 2rem 2rem 10rem rgba($color: #9db9c6, $alpha: 0.6);
             max-width: 97rem;
 
             &::-webkit-scrollbar {
@@ -297,6 +289,46 @@
 .offer {
     background-image: url("./assets/img/offer/background.png");
     transform: translateX(200vw);
+    padding-left: 28.125rem;
+    padding-right: 10rem;
+
+    .bacteria_1_animate {
+        width: 142rem;
+        height: 66rem;
+        top: 12.5rem;
+        left: -82rem;
+        background-image: url("./assets/img/anounce/bacteria_1.png");
+    }
+    .bacteria_2_animate {
+        width: 91rem;
+        height: 43rem;
+        top: 12rem;
+        left: -55rem;
+        background-image: url("./assets/img/anounce/bacteria_2.png");
+    }
+    .bacteria_4_animate {
+        width: 91rem;
+        height: 43rem;
+        top: 51.5rem;
+        left: -16.5rem;
+        background-image: url("./assets/img/anounce/bacteria_2.png");
+    }
+    .bacteria_5_animate {
+        width: 41rem;
+        height: 20rem;
+        bottom: 12rem;
+        left: -17.5rem;
+        background-image: url("./assets/img/anounce/bacteria_5.png");
+    }
+
+    &__text {
+        margin-left: 15rem;
+        margin-bottom: 12rem;
+    }
+    &__h1 {
+        margin-left: 16rem;
+        margin-bottom: 2rem;
+    }
 }
 
 .logo {
@@ -349,6 +381,18 @@
         background-position: center;
         background-repeat: no-repeat;
         background-size: 50%;
+    }
+}
+
+.big_text {
+    font-size: 13.6rem;
+    line-height: 14.6rem;
+    font-family: "Gillroy";
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.5rem;
+    b {
+        font-weight: bold;
     }
 }
 

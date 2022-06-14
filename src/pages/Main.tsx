@@ -21,7 +21,7 @@ const Main: FC<Props> = ({ screenRef, screenList }) => {
             <div className="bacteria bacteria_9_animate" />
             <div className="main__body">
                 <h1 className="h1 main__h1">Привет,</h1>
-                <div className="main__text">
+                <div className="big_text main__text">
                     <span>
                         Это <b>не</b> коммерческое задание
                     </span>
