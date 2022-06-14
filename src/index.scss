@@ -1,0 +1,48 @@
+@font-face {
+    font-family: "Circle";
+    font-style: normal;
+    font-weight: 400;
+    src: url("./assets/fonts/Circe-Regular.woff");
+}
+
+@font-face {
+    font-family: "DINPro";
+    font-style: normal;
+    font-weight: 400;
+    src: url("./assets/fonts/DINPro-Light.woff");
+}
+
+@font-face {
+    font-family: "Gillroy";
+    font-style: normal;
+    font-weight: 300;
+    src: url("./assets/fonts/Gilroy-Light.woff");
+}
+
+@font-face {
+    font-family: "Gillroy";
+    font-style: normal;
+    font-weight: 400;
+    src: url("./assets/fonts/Gilroy-Regular.woff");
+}
+
+@font-face {
+    font-family: "Gillroy";
+    font-style: normal;
+    font-weight: 700;
+    src: url("./assets/fonts/Gilroy-Extrabold.woff");
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    overflow-y: hidden;
+    font-size: 1.042vh;
+}

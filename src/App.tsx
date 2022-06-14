@@ -1,58 +1,32 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { FC } from "react";
+import "./App.scss";
+import { Screen } from "./AppWrapper";
+import Home from "./Components/Home";
+import Logo from "./Components/Logo";
+import Anounce from "./pages/Anounce";
+import Main from "./pages/Main";
+import Offer from "./pages/Offer";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
-    </div>
-  );
+interface AppProps {
+    mainRef: React.RefObject<HTMLDivElement>;
+    anounceRef: React.RefObject<HTMLDivElement>;
+    offerRef: React.RefObject<HTMLDivElement>;
+    isFirstOpened: boolean;
+    screenList: Screen[];
 }
+
+const App: FC<AppProps> = ({ mainRef, anounceRef, offerRef, isFirstOpened, screenList }) => {
+    return (
+        <>
+            <Home />
+            <div className="swipe">
+                <Main screenRef={mainRef} screenList={screenList} />
+                <Anounce screenRef={anounceRef} isFirstOpened={isFirstOpened} />
+                <Offer screenRef={offerRef} />
+            </div>
+            <Logo />
+        </>
+    );
+};
 
 export default App;

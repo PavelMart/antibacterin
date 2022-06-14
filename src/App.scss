@@ -1,0 +1,434 @@
+.App {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    cursor: grab;
+    &.is-grabbed {
+        cursor: grabbing;
+        .scrollbar {
+            &__thumb {
+                cursor: grabbing;
+            }
+        }
+    }
+}
+
+.home {
+    position: absolute;
+    left: 8.25rem;
+    top: 3.2rem;
+    z-index: 1;
+
+    padding-left: 5.875rem;
+
+    background: url("./assets/img/home.png") top 0.25rem left no-repeat;
+    background-size: 20%;
+
+    font-family: "Circle";
+    text-transform: uppercase;
+    font-size: 2.125rem;
+    line-height: 100%;
+    color: #000;
+
+    &__text {
+        padding-left: 3.25rem;
+        padding-top: 0.875rem;
+        padding-bottom: 0.875rem;
+        border-left: 1px solid #000;
+    }
+}
+
+.swipe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.screen {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    padding: 0 5.625rem 0 8.75rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    .h1 {
+        font-family: "DINPro";
+        font-size: 3rem;
+        line-height: 140%;
+        text-transform: uppercase;
+        letter-spacing: 0.475rem;
+    }
+}
+
+.main {
+    background-image: url("./assets/img/main/background.png");
+    transform: translateX(0);
+    padding-top: 21.25rem;
+
+    .bacteria_1_static {
+        width: 26.75rem;
+        height: 14.5rem;
+        top: 9rem;
+        left: -11rem;
+        background-image: url("./assets/img/main/bacteria_1.png");
+    }
+
+    .bacteria_2_static {
+        width: 51.7rem;
+        height: 22.9rem;
+        bottom: -1rem;
+        left: -16.75rem;
+        background-image: url("./assets/img/main/bacteria_2.png");
+    }
+
+    .bacteria_3_static {
+        width: 10.5rem;
+        height: 9.5rem;
+        bottom: 7.5rem;
+        left: 43.5rem;
+        background-image: url("./assets/img/main/bacteria_3.png");
+    }
+
+    .bacteria_4_static {
+        width: 74rem;
+        height: 11.5rem;
+        top: 19.3rem;
+        right: 0;
+        z-index: 1;
+        background-image: url("./assets/img/main/bacteria_4.png");
+    }
+
+    .bacteria_5_static {
+        width: 8.75rem;
+        height: 8.75rem;
+        top: 3.75rem;
+        right: 4.5rem;
+        background-image: url("./assets/img/main/bacteria_5.png");
+    }
+
+    .bacteria_6_animate {
+        width: 7.8rem;
+        height: 7.1rem;
+        top: 7.8rem;
+        right: 27rem;
+        background-image: url("./assets/img/main/bacteria_6.png");
+        animation: bacteria_1 30s linear infinite;
+    }
+
+    .bacteria_7_animate {
+        width: 14rem;
+        height: 14rem;
+        top: 13rem;
+        right: 29rem;
+        z-index: 2;
+        background-image: url("./assets/img/main/bacteria_7.png");
+        offset-path: path(
+            "m52.1,130.5c30.2,-16.7 71.6,5 85.2,23.9c13.6,18.8 24.2,38.1 57.9,42.9c33.7,4.7 75.3,-103.1 1.6,-78.7c-73.6,24.3 -68.8,63.8 -121.1,71.7c-52.2,7.8 -53.9,-43 -23.7,-59.7z"
+        );
+        animation: bacteria_2 45s infinite linear;
+    }
+
+    .bacteria_8_animate {
+        width: 9rem;
+        height: 9rem;
+        bottom: 24rem;
+        left: 3rem;
+        background-image: url("./assets/img/main/bacteria_8.png");
+        animation: bacteria_3 30s linear infinite;
+    }
+
+    .bacteria_9_animate {
+        width: 28rem;
+        height: 28rem;
+        bottom: -12rem;
+        right: 32rem;
+        background-image: url("./assets/img/main/bacteria_9.png");
+        animation: bacteria_4 45s linear infinite;
+    }
+
+    &__body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__text {
+        position: relative;
+        font-size: 13.6rem;
+        line-height: 14.6rem;
+        font-family: "Gillroy";
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 0.5rem;
+        b {
+            font-weight: bold;
+        }
+    }
+
+    &__icon {
+        background-image: url("./assets/img/main/icon.png");
+    }
+}
+
+.anounce {
+    background-image: url("./assets/img/anounce/background.png");
+    transform: translateX(100vw);
+    padding-top: 17rem;
+
+    .bacteria {
+        transform: translate(10rem, 10rem) scale(0, 0);
+        opacity: 0;
+    }
+
+    &.first_opened {
+        .bacteria {
+            transform: none;
+            opacity: 1;
+        }
+        .bacteria_1_animate {
+            width: 142rem;
+            height: 66rem;
+            top: 12.5rem;
+            right: -60rem;
+            background-image: url("./assets/img/anounce/bacteria_1.png");
+            animation: bacteria_5 3s ease;
+        }
+        .bacteria_2_animate {
+            width: 91rem;
+            height: 43rem;
+            top: 12rem;
+            right: -36rem;
+            background-image: url("./assets/img/anounce/bacteria_2.png");
+            animation: bacteria_5 3.5s ease;
+        }
+        .bacteria_3_animate {
+            width: 52rem;
+            height: 24.5rem;
+            top: 9.25rem;
+            right: -12.5rem;
+            background-image: url("./assets/img/anounce/bacteria_3.png");
+            animation: bacteria_5 5s ease;
+        }
+        .bacteria_4_animate {
+            width: 91rem;
+            height: 43rem;
+            top: 51.5rem;
+            right: -74.5rem;
+            background-image: url("./assets/img/anounce/bacteria_2.png");
+            animation: bacteria_5 3s ease;
+        }
+        .bacteria_5_animate {
+            width: 41rem;
+            height: 20rem;
+            bottom: 12rem;
+            right: -23.5rem;
+            background-image: url("./assets/img/anounce/bacteria_5.png");
+            animation: bacteria_5 3s ease;
+        }
+    }
+
+    .scroll {
+        cursor: default;
+        position: relative;
+        padding-left: 50px;
+        height: 55.75rem;
+
+        &__body {
+            overflow: hidden;
+            height: inherit;
+            background-color: #fff;
+            border-radius: 5rem;
+            padding: 4rem;
+            box-shadow: 2rem 2rem 20rem rgba($color: #9db9c6, $alpha: 0.6);
+            max-width: 97rem;
+
+            &::-webkit-scrollbar {
+                width: 0;
+            }
+        }
+
+        &__wrapper {
+            overflow: hidden;
+            height: 100%;
+        }
+
+        &__text {
+            font-size: 2.75rem;
+            line-height: 135%;
+            font-family: "DINPro";
+        }
+
+        .scrollbar {
+            position: absolute;
+            top: 0;
+            left: 0.9375rem;
+            width: 0.625rem;
+            height: 100%;
+            background-color: black;
+            border-radius: 0.3rem;
+
+            &__thumb {
+                cursor: grab;
+                position: absolute;
+                top: 0;
+                left: -0.9375rem;
+                width: 2.5rem;
+                border-radius: 1.25rem;
+                background: url("./assets/img/anounce/scroll.png") no-repeat center;
+                background-size: cover;
+            }
+        }
+    }
+
+    &__h1 {
+        margin-bottom: 6.25rem;
+        max-width: 22.5rem;
+    }
+}
+
+.offer {
+    background-image: url("./assets/img/offer/background.png");
+    transform: translateX(200vw);
+}
+
+.logo {
+    position: absolute;
+    z-index: 1;
+    bottom: 2rem;
+    left: 8.7rem;
+    width: 7.125rem;
+    height: 1rem;
+    background: url("./assets/img/logo.svg") center center no-repeat;
+    background-size: contain;
+}
+
+.button {
+    position: absolute;
+    bottom: 2rem;
+    right: 8rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    height: 10rem;
+    border-radius: 5rem;
+    background-color: #ff6a9f;
+    font-size: 3.375rem;
+    letter-spacing: 0.2rem;
+    font-family: "DINPro";
+    span {
+        margin-right: 2.625rem;
+    }
+    .circle {
+        width: 6rem;
+        height: 6rem;
+        background-color: #000;
+        border-radius: 50%;
+        &__border {
+            width: 6.875rem;
+            height: 6.875rem;
+            background-image: linear-gradient(135deg, #b8517c, #ff9bbf);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            margin-right: 2rem;
+        }
+    }
+    .icon {
+        width: 100%;
+        height: 100%;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: 50%;
+    }
+}
+
+.bacteria {
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+@keyframes bacteria_1 {
+    0% {
+        transform: translate(0, 0) scale(1, 1);
+    }
+    25% {
+        transform: translate(4rem, 2rem) scale(0.9, 0.9);
+    }
+    50% {
+        transform: translate(7rem, 5rem) scale(1, 1);
+    }
+    75% {
+        transform: translate(-2rem, 7rem) scale(0.7, 0.7);
+    }
+    90% {
+        transform: translate(-3rem, 2rem) scale(0.9, 0.9);
+    }
+    100% {
+        transform: translate(0, 0) scale(1, 1);
+    }
+}
+
+@keyframes bacteria_2 {
+    0% {
+        offset-distance: 0%;
+    }
+    100% {
+        offset-distance: 100%;
+    }
+}
+
+@keyframes bacteria_3 {
+    0% {
+        transform: translate(0, 0) scale(1, 1);
+    }
+    25% {
+        transform: translate(-2rem, -3rem) scale(0.9, 0.9);
+    }
+    50% {
+        transform: translate(2rem, 2rem) scale(0.6, 0.6);
+    }
+    75% {
+        transform: translate(0rem, 3rem) scale(0.8, 0.8);
+    }
+    100% {
+        transform: translate(0, 0) scale(1, 1);
+    }
+}
+
+@keyframes bacteria_4 {
+    0% {
+        transform: translate(0, 0) scale(1, 1);
+    }
+    33% {
+        transform: translate(-5rem, -3rem) scale(1.3, 1.3);
+    }
+    66% {
+        transform: translate(5rem, -2rem) scale(1.1, 1.1);
+    }
+    100% {
+        transform: translate(0, 0) scale(1, 1);
+    }
+}
+
+@keyframes bacteria_5 {
+    0% {
+        transform: translate(10rem, 10rem) scale(0, 0);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0, 0) scale(1, 1);
+        opacity: 1;
+    }
+}
