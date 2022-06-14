@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/static/css/main.2d70d38a.css",
+    "main.js": "/static/js/main.69d4524d.js",
+    "static/media/background.png": "/static/media/background.7194a938c16cd968b3e9.png",
+    "static/media/bacteria_4.png": "/static/media/bacteria_4.d1577b69fb1b89b40f08.png",
+    "static/media/Circe-Regular.woff": "/static/media/Circe-Regular.a5168fcec068fa77220a.woff",
+    "static/media/bacteria_9.png": "/static/media/bacteria_9.ec0540bc3922dd39e3e2.png",
+    "static/media/bacteria_1.png": "/static/media/bacteria_1.cba30b93b0373a9bce25.png",
+    "static/media/bacteria_2.png": "/static/media/bacteria_2.d80b01eac0f0df4c170f.png",
+    "static/media/DINPro-Light.woff": "/static/media/DINPro-Light.a9da4f433b906a2dfbac.woff",
+    "static/media/Gilroy-Light.woff": "/static/media/Gilroy-Light.368f09f56e89b3fe11c7.woff",
+    "static/media/Gilroy-Regular.woff": "/static/media/Gilroy-Regular.ebe86c0337572553acea.woff",
+    "static/media/Gilroy-Extrabold.woff": "/static/media/Gilroy-Extrabold.f39ff81c45c126012265.woff",
+    "static/media/bacteria_7.png": "/static/media/bacteria_7.2c17ced2bf48981d7892.png",
+    "static/media/bacteria_3.png": "/static/media/bacteria_3.ec73a5cd6565a53425b8.png",
+    "static/media/bacteria_8.png": "/static/media/bacteria_8.17ee13d2e67e8c606a61.png",
+    "static/media/bacteria_5.png": "/static/media/bacteria_5.37afa88f8ef3b849e01c.png",
+    "static/media/bacteria_6.png": "/static/media/bacteria_6.4bdcfa5cf64699e5b4ce.png",
+    "static/media/logo.svg": "/static/media/logo.cbfe60f9944be1a4848f.svg",
+    "index.html": "/index.html",
+    "main.2d70d38a.css.map": "/static/css/main.2d70d38a.css.map",
+    "main.69d4524d.js.map": "/static/js/main.69d4524d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2d70d38a.css",
+    "static/js/main.69d4524d.js"
+  ]
+}
