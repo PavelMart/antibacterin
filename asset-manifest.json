@@ -1,29 +1,34 @@
 {
   "files": {
-    "main.css": "/antibacterin/static/css/main.240a1ebb.css",
-    "main.js": "/antibacterin/static/js/main.8b9883ce.js",
+    "main.css": "/antibacterin/static/css/main.00bd7010.css",
+    "main.js": "/antibacterin/static/js/main.ba172be4.js",
     "static/media/background.png": "/antibacterin/static/media/background.7194a938c16cd968b3e9.png",
+    "static/media/bottle.png": "/antibacterin/static/media/bottle.6574d6bac1ea1ef46f08.png",
     "static/media/bacteria_4.png": "/antibacterin/static/media/bacteria_4.d1577b69fb1b89b40f08.png",
     "static/media/Circe-Regular.woff": "/antibacterin/static/media/Circe-Regular.a5168fcec068fa77220a.woff",
     "static/media/bacteria_9.png": "/antibacterin/static/media/bacteria_9.ec0540bc3922dd39e3e2.png",
     "static/media/bacteria_1.png": "/antibacterin/static/media/bacteria_1.cba30b93b0373a9bce25.png",
     "static/media/bacteria_2.png": "/antibacterin/static/media/bacteria_2.d80b01eac0f0df4c170f.png",
     "static/media/DINPro-Light.woff": "/antibacterin/static/media/DINPro-Light.a9da4f433b906a2dfbac.woff",
+    "static/media/2.png": "/antibacterin/static/media/2.8c760d4d765f8204f2de.png",
     "static/media/Gilroy-Light.woff": "/antibacterin/static/media/Gilroy-Light.368f09f56e89b3fe11c7.woff",
     "static/media/Gilroy-Regular.woff": "/antibacterin/static/media/Gilroy-Regular.ebe86c0337572553acea.woff",
     "static/media/Gilroy-Extrabold.woff": "/antibacterin/static/media/Gilroy-Extrabold.f39ff81c45c126012265.woff",
     "static/media/bacteria_7.png": "/antibacterin/static/media/bacteria_7.2c17ced2bf48981d7892.png",
+    "static/media/6.png": "/antibacterin/static/media/6.918f65b0551d42e187e2.png",
+    "static/media/8.png": "/antibacterin/static/media/8.86423c8b46a0bfeb8564.png",
     "static/media/bacteria_3.png": "/antibacterin/static/media/bacteria_3.ec73a5cd6565a53425b8.png",
+    "static/media/4.png": "/antibacterin/static/media/4.e8074334c3a4f5e58cd3.png",
     "static/media/bacteria_8.png": "/antibacterin/static/media/bacteria_8.17ee13d2e67e8c606a61.png",
     "static/media/bacteria_5.png": "/antibacterin/static/media/bacteria_5.37afa88f8ef3b849e01c.png",
     "static/media/bacteria_6.png": "/antibacterin/static/media/bacteria_6.4bdcfa5cf64699e5b4ce.png",
     "static/media/logo.svg": "/antibacterin/static/media/logo.cbfe60f9944be1a4848f.svg",
     "index.html": "/antibacterin/index.html",
-    "main.240a1ebb.css.map": "/antibacterin/static/css/main.240a1ebb.css.map",
-    "main.8b9883ce.js.map": "/antibacterin/static/js/main.8b9883ce.js.map"
+    "main.00bd7010.css.map": "/antibacterin/static/css/main.00bd7010.css.map",
+    "main.ba172be4.js.map": "/antibacterin/static/js/main.ba172be4.js.map"
   },
   "entrypoints": [
-    "static/css/main.240a1ebb.css",
-    "static/js/main.8b9883ce.js"
+    "static/css/main.00bd7010.css",
+    "static/js/main.ba172be4.js"
   ]
 }
