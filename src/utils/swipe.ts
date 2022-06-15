@@ -1,6 +1,6 @@
 import { AppDispatch } from "./../store/store";
-import { ScreenList } from "../AppWrapper";
 import { setCurrent, setDiff, setStartX } from "../store/slide/slideSlice";
+import { ScreenList } from "../types/types";
 
 // обработка движения мыши или касания
 export const moveTo = (screenList: ScreenList, current: number, diff: number) => {

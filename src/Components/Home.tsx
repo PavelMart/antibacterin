@@ -1,10 +1,7 @@
 import React, { FC } from "react";
+import { HomeProps } from "../types/types";
 
-interface Props {
-    onClick: () => void;
-}
-
-const Home: FC<Props> = ({ onClick }) => {
+const Home: FC<HomeProps> = ({ onClick }) => {
     return (
         <div className="home" onClick={onClick}>
             <div className="home__text">Project</div>

@@ -73,6 +73,22 @@
     background-image: url("./assets/img/main/background.png");
     transform: translateX(0);
 
+    &__body {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__text {
+        position: relative;
+    }
+
+    &__icon {
+        background-image: url("./assets/img/main/icon.png");
+    }
+
     .bacteria_1_static {
         width: 26.75rem;
         height: 14.5rem;
@@ -153,22 +169,6 @@
         background-image: url("./assets/img/main/bacteria_9.png");
         animation: bacteria_4 45s linear infinite;
     }
-
-    &__body {
-        width: 100%;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    &__text {
-        position: relative;
-    }
-
-    &__icon {
-        background-image: url("./assets/img/main/icon.png");
-    }
 }
 
 .anounce {
@@ -177,56 +177,9 @@
     padding-top: 17rem;
     z-index: 1;
 
-    .bacteria {
-        transform: translate(10rem, 10rem) scale(0, 0);
-        opacity: 0;
-    }
-
-    &.first_opened {
-        .bacteria {
-            transform: none;
-            opacity: 1;
-        }
-        .bacteria_1_animate {
-            width: 142rem;
-            height: 66rem;
-            top: 12.5rem;
-            right: -60rem;
-            background-image: url("./assets/img/anounce/bacteria_1.png");
-            animation: bacteria_5 2s ease;
-        }
-        .bacteria_2_animate {
-            width: 91rem;
-            height: 43rem;
-            top: 12rem;
-            right: -36rem;
-            background-image: url("./assets/img/anounce/bacteria_2.png");
-            animation: bacteria_5 2.5s ease;
-        }
-        .bacteria_3_animate {
-            width: 52rem;
-            height: 24.5rem;
-            top: 9.25rem;
-            right: -12.5rem;
-            background-image: url("./assets/img/anounce/bacteria_3.png");
-            animation: bacteria_5 3s ease;
-        }
-        .bacteria_4_animate {
-            width: 91rem;
-            height: 43rem;
-            top: 51.5rem;
-            right: -74.5rem;
-            background-image: url("./assets/img/anounce/bacteria_2.png");
-            animation: bacteria_5 2s ease;
-        }
-        .bacteria_5_animate {
-            width: 41rem;
-            height: 20rem;
-            bottom: 12rem;
-            right: -23.5rem;
-            background-image: url("./assets/img/anounce/bacteria_5.png");
-            animation: bacteria_5 2s ease;
-        }
+    &__h1 {
+        margin-bottom: 6.25rem;
+        max-width: 22.5rem;
     }
 
     .scroll {
@@ -282,50 +235,86 @@
         }
     }
 
-    &__h1 {
-        margin-bottom: 6.25rem;
-        max-width: 22.5rem;
+    .bacteria {
+        transform: translate(10rem, 10rem) scale(0, 0);
+        opacity: 0;
+    }
+
+    &.first_opened {
+        .bacteria {
+            transform: none;
+            opacity: 1;
+        }
+        .bacteria_1_animate {
+            width: 142rem;
+            height: 66rem;
+            top: 12.5rem;
+            right: -60rem;
+            background-image: url("./assets/img/anounce/bacteria_1.png");
+            animation: bacteria_5 2s ease;
+        }
+        .bacteria_2_animate {
+            width: 91rem;
+            height: 43rem;
+            top: 12rem;
+            right: -36rem;
+            background-image: url("./assets/img/anounce/bacteria_2.png");
+            animation: bacteria_5 2.5s ease;
+        }
+        .bacteria_3_animate {
+            width: 52rem;
+            height: 24.5rem;
+            top: 9.25rem;
+            right: -12.5rem;
+            background-image: url("./assets/img/anounce/bacteria_3.png");
+            animation: bacteria_5 3s ease;
+        }
+        .bacteria_4_animate {
+            width: 91rem;
+            height: 43rem;
+            top: 51.5rem;
+            right: -74.5rem;
+            background-image: url("./assets/img/anounce/bacteria_2.png");
+            animation: bacteria_5 2s ease;
+        }
+        .bacteria_5_animate {
+            width: 41rem;
+            height: 20rem;
+            bottom: 12rem;
+            right: -23.5rem;
+            background-image: url("./assets/img/anounce/bacteria_5.png");
+            animation: bacteria_5 2s ease;
+        }
     }
 }
 
 .offer {
     background-image: url("./assets/img/offer/background.png");
+    background-color: rgba($color: #000000, $alpha: 0.5);
     transform: translateX(200vw);
-    padding-left: 28.125rem;
-    padding-right: 10rem;
+    padding-top: 16.125rem;
+    padding-left: 22.125rem;
+    padding-right: 5rem;
+    padding-bottom: 5rem;
 
-    .bacteria_1_animate {
-        width: 142rem;
-        height: 66rem;
-        top: 12.5rem;
-        left: -82rem;
-        background-image: url("./assets/img/anounce/bacteria_1.png");
-    }
-    .bacteria_2_animate {
-        width: 91rem;
-        height: 43rem;
-        top: 12rem;
-        left: -55rem;
-        background-image: url("./assets/img/anounce/bacteria_2.png");
-    }
-    .bacteria_4_animate {
-        width: 91rem;
-        height: 43rem;
-        top: 51.5rem;
-        left: -16.5rem;
-        background-image: url("./assets/img/anounce/bacteria_2.png");
-    }
-    .bacteria_5_animate {
-        width: 41rem;
-        height: 20rem;
-        bottom: 12rem;
-        left: -17.5rem;
-        background-image: url("./assets/img/anounce/bacteria_5.png");
+    &__body {
+        z-index: 1;
+        position: relative;
+        padding: 5rem;
+        padding-left: 6rem;
+
+        &.is_open {
+            background-color: #fff;
+            border-radius: 5rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
     }
 
     &__h1 {
         margin-left: 16rem;
-        margin-bottom: 2rem;
     }
 
     &__text {
@@ -333,9 +322,79 @@
         margin-bottom: 5rem;
     }
 
-    &__body {
-        z-index: 1;
-        position: relative;
+    .popup {
+        margin-left: 16rem;
+        margin-bottom: 5rem;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        &__background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            background-color: rgba($color: #000000, $alpha: 0.5);
+            animation: bg 1s ease;
+        }
+        .advantage {
+            font-size: 3rem;
+            &__num {
+                font-family: "Gillroy";
+                font-weight: 700;
+                margin-bottom: 1rem;
+                color: #8cc9e8;
+            }
+            &__text {
+                font-family: "DINPro";
+            }
+        }
+    }
+
+    .close {
+        position: absolute;
+        width: 4rem;
+        height: 4rem;
+        top: 5rem;
+        right: 5rem;
+        background: url("./assets/img/offer/close.png") no-repeat;
+        background-size: cover;
+    }
+
+    .switch {
+        margin-left: 16rem;
+        display: flex;
+        &__button {
+            width: 1rem;
+            height: 2rem;
+            background: transparent url("./assets/img/offer/arrow.png") no-repeat center left;
+            background-size: cover;
+            border: none;
+            &_next {
+                transform: rotate(180deg);
+            }
+        }
+        &__indicator {
+            margin: 0 2rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            div {
+                width: 1.3rem;
+                height: 1.3rem;
+                border: 0.25rem solid black;
+                border-radius: 50%;
+                &:first-child {
+                    margin-right: 1rem;
+                }
+                &.active {
+                    border-color: #fc6da9;
+                    background-color: #fc6da9;
+                }
+            }
+        }
     }
 
     .button {
@@ -369,20 +428,145 @@
 
         &__a,
         &__b {
+            position: relative;
             font-family: "DINPro";
             font-size: 3rem;
             border-radius: 5rem;
             background-color: #fff;
             box-shadow: 1rem 1rem 15rem rgba($color: #9db9c6, $alpha: 0.4);
+            img {
+                position: absolute;
+                top: -4.25rem;
+                width: 8.5rem;
+                height: 7.8rem;
+            }
         }
         &__a {
             grid-area: a;
             padding: 6.25rem 6.25rem 8rem 16rem;
+            img {
+                left: 16rem;
+            }
         }
         &__b {
             grid-area: b;
             padding: 5rem;
+            img {
+                left: 5rem;
+            }
         }
+    }
+
+    .bacteria_1_animate {
+        width: 142rem;
+        height: 66rem;
+        top: 12.5rem;
+        left: -82rem;
+        background-image: url("./assets/img/anounce/bacteria_1.png");
+    }
+    .bacteria_2_animate {
+        width: 91rem;
+        height: 43rem;
+        top: 12rem;
+        left: -55rem;
+        background-image: url("./assets/img/anounce/bacteria_2.png");
+    }
+    .bacteria_4_animate {
+        width: 91rem;
+        height: 43rem;
+        top: 51.5rem;
+        left: -16.5rem;
+        background-image: url("./assets/img/anounce/bacteria_2.png");
+    }
+    .bacteria_5_animate {
+        width: 41rem;
+        height: 20rem;
+        bottom: 12rem;
+        left: -17.5rem;
+        background-image: url("./assets/img/anounce/bacteria_5.png");
+    }
+
+    .bottle {
+        width: 29rem;
+        height: 86rem;
+        left: 6rem;
+        bottom: 0;
+        z-index: 3;
+        background-image: url("./assets/img/offer/bottle.png");
+    }
+
+    .bubble_1 {
+        width: 4rem;
+        height: 4rem;
+        top: 26rem;
+        left: 10rem;
+        z-index: 2;
+        background-image: url("./assets/img/offer/1.png");
+        animation: bubble_1 15s ease-in-out infinite;
+    }
+
+    .bubble_2 {
+        width: 14rem;
+        height: 14rem;
+        top: 40rem;
+        left: 23rem;
+        z-index: 2;
+        background-image: url("./assets/img/offer/2.png");
+        animation: bubble_2 7s linear infinite;
+    }
+
+    .bubble_3 {
+        width: 4.75rem;
+        height: 4.75rem;
+        top: 8rem;
+        left: 25rem;
+        z-index: 2;
+        background-image: url("./assets/img/offer/3.png");
+    }
+
+    .bubble_4 {
+        width: 7.5rem;
+        height: 7.5rem;
+        top: 74rem;
+        left: 30rem;
+        z-index: 2;
+        background-image: url("./assets/img/offer/4.png");
+    }
+
+    .bubble_5 {
+        width: 8.5rem;
+        height: 8.5rem;
+        top: 19rem;
+        left: 23rem;
+        z-index: 4;
+        background-image: url("./assets/img/offer/5.png");
+    }
+
+    .bubble_6 {
+        width: 18rem;
+        height: 18rem;
+        top: 88rem;
+        left: 23rem;
+        z-index: 4;
+        background-image: url("./assets/img/offer/6.png");
+    }
+
+    .bubble_7 {
+        width: 4rem;
+        height: 4rem;
+        top: 56rem;
+        left: 1.5rem;
+        z-index: 4;
+        background-image: url("./assets/img/offer/7.png");
+    }
+
+    .bubble_8 {
+        width: 9rem;
+        height: 9rem;
+        top: 69rem;
+        left: 4rem;
+        z-index: 4;
+        background-image: url("./assets/img/offer/8.png");
     }
 }
 
@@ -452,11 +636,67 @@
     }
 }
 
-.bacteria {
+.bacteria,
+.bottle,
+.bubble {
     position: absolute;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
+}
+
+.main-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 999;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    &.open {
+        display: flex;
+    }
+    &__body {
+        padding: 5rem;
+        width: 70%;
+        height: 70%;
+        border-radius: 5rem;
+        font-size: 3rem;
+        font-family: "DINPro";
+        background-color: #fff;
+        box-shadow: 0 0 3rem rgba($color: #000000, $alpha: 0.7);
+        display: flex;
+        flex-direction: column;
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 5rem;
+        }
+        .steps {
+            flex: 1;
+            div {
+                margin: 2rem 0;
+                display: flex;
+                flex-direction: column;
+                align-items: stretch;
+                img {
+                    align-self: center;
+                    margin: 1rem 0;
+                    width: 10rem;
+                    height: 4rem;
+                }
+                &:last-child {
+                    img {
+                        width: 100%;
+                        max-width: 80rem;
+                    }
+                }
+            }
+        }
+    }
 }
 
 @keyframes bacteria_1 {
@@ -529,6 +769,48 @@
     }
     100% {
         transform: translate(0, 0) scale(1, 1);
+        opacity: 1;
+    }
+}
+
+@keyframes bubble_1 {
+    0% {
+        transform: translate(0, 0);
+    }
+    33% {
+        transform: translate(5rem, 5rem);
+    }
+    66% {
+        transform: translate(5rem, -2rem);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+@keyframes bubble_2 {
+    0% {
+        transform: translate(0, 0) scale(1, 1);
+    }
+    33% {
+        transform: translate(2rem, -2rem) scale(1.35, 1.35);
+    }
+    50% {
+        transform: scale(1.7, 1.7);
+    }
+    66% {
+        transform: translate(2rem, 2rem) scale(1.35, 1.35);
+    }
+    100% {
+        transform: translate(0, 0) scale(1, 1);
+    }
+}
+
+@keyframes bg {
+    0% {
+        opacity: 0;
+    }
+    100% {
         opacity: 1;
     }
 }

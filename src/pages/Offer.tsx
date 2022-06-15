@@ -1,28 +1,26 @@
 import React, { FC } from "react";
-import { ScreenProps } from "../AppWrapper";
-import Button from "../Components/Button";
+import OfferBacteries from "../Components/Offer/OfferBacteries";
+import OfferBody from "../Components/Offer/OfferBody";
+import OfferBottle from "../Components/Offer/OfferBottle";
+import PopupBackground from "../Components/Offer/PopupBackground";
+import { openSecondPopup } from "../store/slide/slideSlice";
+import { useAppDispatch, useAppSelector } from "../store/store";
+import { OfferProps } from "../types/types";
 
-const Offer: FC<ScreenProps> = ({ screenRef }) => {
+const Offer: FC<OfferProps> = ({ screenRef }) => {
+    const { isSecondOpenPopup } = useAppSelector((state) => state.slide);
+    const dispatch = useAppDispatch();
+
+    const tooglePopup = () => {
+        dispatch(openSecondPopup(!isSecondOpenPopup));
+    };
+
     return (
         <div ref={screenRef} className={["screen", "offer"].join(" ")}>
-            <div className="bacteria bacteria_1_animate" />
-            <div className="bacteria bacteria_2_animate" />
-            <div className="bacteria bacteria_4_animate" />
-            <div className="bacteria bacteria_5_animate" />
-
-            <div className="offer__body">
-                <h1 className="h1 offer__h1">Ключевое сообщение</h1>
-                <div className="big_text offer__text">
-                    Brend<b>xy</b>
-                </div>
-                <div className="adv">
-                    <div className="adv__a">
-                        Ehicula ipsum a arcu cursus vitae. Eu non diam phasellus vestibulum lorem sed risus ultricies
-                    </div>
-                    <div className="adv__b">A arcu cursus vitae</div>
-                    <Button text="Подробнее" icon={<div className="icon"></div>} />
-                </div>
-            </div>
+            {isSecondOpenPopup && <PopupBackground />}
+            <OfferBacteries />
+            <OfferBottle />
+            <OfferBody onClick={tooglePopup} isOpen={isSecondOpenPopup} />
         </div>
     );
 };

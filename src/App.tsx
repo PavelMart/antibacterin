@@ -5,15 +5,7 @@ import Logo from "./Components/Logo";
 import Anounce from "./pages/Anounce";
 import Main from "./pages/Main";
 import Offer from "./pages/Offer";
-
-interface AppProps {
-    mainRef: React.RefObject<HTMLDivElement>;
-    anounceRef: React.RefObject<HTMLDivElement>;
-    offerRef: React.RefObject<HTMLDivElement>;
-    isFirstOpened: boolean;
-    onNextClick: () => void;
-    onHomeClick: () => void;
-}
+import { AppProps } from "./types/types";
 
 const App: FC<AppProps> = ({ mainRef, anounceRef, offerRef, isFirstOpened, onNextClick, onHomeClick }) => {
     return (

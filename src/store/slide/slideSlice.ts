@@ -5,13 +5,17 @@ interface slideState {
     current: number;
     diff: number;
     isFirstOpened: boolean;
+    isFirstOpenPopup: boolean;
+    isSecondOpenPopup: boolean;
 }
 
 const initialState: slideState = {
     startX: 0,
-    current: 2,
+    current: 0,
     diff: 0,
     isFirstOpened: false,
+    isFirstOpenPopup: false,
+    isSecondOpenPopup: false,
 };
 
 const slideSlice = createSlice({
@@ -27,12 +31,18 @@ const slideSlice = createSlice({
         setCurrent: (state, { payload }) => {
             state.current = payload;
         },
-        setFirstOpened: (state) => {
-            state.isFirstOpened = true;
+        setFirstOpened: (state, { payload }) => {
+            state.isFirstOpened = payload;
+        },
+        openFirstPopup: (state, { payload }) => {
+            state.isFirstOpenPopup = payload;
+        },
+        openSecondPopup: (state, { payload }) => {
+            state.isSecondOpenPopup = payload;
         },
     },
 });
 
-export const { setStartX, setDiff, setCurrent, setFirstOpened } = slideSlice.actions;
+export const { setStartX, setDiff, setCurrent, setFirstOpened, openFirstPopup, openSecondPopup } = slideSlice.actions;
 
 export default slideSlice.reducer;

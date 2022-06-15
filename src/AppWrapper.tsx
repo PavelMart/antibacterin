@@ -1,25 +1,14 @@
 import React, { useEffect, useRef, useState } from "react";
 import App from "./App";
 import "./App.scss";
-import { setCurrent, setFirstOpened } from "./store/slide/slideSlice";
+import MainPopup from "./Components/Popup/Popup";
+import { openFirstPopup, setCurrent, setFirstOpened } from "./store/slide/slideSlice";
 import { useAppDispatch, useAppSelector } from "./store/store";
+import { Handlers, ScreenList } from "./types/types";
 import { handleEnd, handleMove, handleStart, moveTo } from "./utils/swipe";
 
-export interface ScreenProps {
-    screenRef: React.RefObject<HTMLDivElement>;
-    isFirstOpened?: boolean;
-    screenList?: Screen[];
-}
-
-export interface Screen {
-    ref: React.RefObject<HTMLDivElement>;
-    slide: number;
-}
-
-export type ScreenList = Screen[];
-
 function AppWrapper() {
-    const { startX, diff, current, isFirstOpened } = useAppSelector((state) => state.slide);
+    const { startX, diff, current, isFirstOpened, isFirstOpenPopup, isSecondOpenPopup } = useAppSelector((state) => state.slide);
     const [isGrabbed, setIsGrabbed] = useState(false);
     const [isSwipe, setIsSwipe] = useState(true);
 
@@ -36,12 +25,35 @@ function AppWrapper() {
     ];
 
     useEffect(() => {
-        if (current === 1 && !isFirstOpened) dispatch(setFirstOpened());
+        resize();
+        window.addEventListener("resize", resize);
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
+    useEffect(() => {
+        if (current > 0) dispatch(setFirstOpened(true));
+        else dispatch(setFirstOpened(false));
 
         moveTo(screenList, current, diff);
 
+        screenList.forEach(({ ref, slide }) => {
+            if (ref.current) {
+                ref.current.style.display = "";
+                if (Math.abs(slide - current) === 2) ref.current.style.display = "none";
+            }
+        });
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [current, diff]);
+
+    const resize = () => {
+        if (window.innerWidth === 1024 && window.innerHeight === 768) {
+            dispatch(openFirstPopup(false));
+        } else {
+            dispatch(openFirstPopup(true));
+        }
+    };
 
     const onNextClick = () => {
         dispatch(setCurrent(1));
@@ -51,49 +63,36 @@ function AppWrapper() {
         dispatch(setCurrent(0));
     };
 
-    const handleTouchStart = (e: any) => {
-        if (e.target?.closest(".scroll")) setIsSwipe(false);
-        else handleStart(e, screenList, dispatch);
-    };
-
-    const handleTouchMove = (e: React.TouchEvent<Element>) => {
-        if (isSwipe) handleMove(e, dispatch, startX);
-    };
-
-    const handleTouchEnd = (e: React.TouchEvent) => {
-        handleEnd(dispatch, screenList, diff, current);
-        setIsSwipe(true);
-    };
-
-    const handleMouseDown = (e: any) => {
+    const onStart = (e: any) => {
         setIsGrabbed(true);
         if (e.target.closest(".scroll")) setIsSwipe(false);
         handleStart(e, screenList, dispatch);
     };
 
-    const handleMouseMove = (e: React.MouseEvent) => {
-        if (isGrabbed && isSwipe) {
+    const onMove = (e: any) => {
+        if (isGrabbed && isSwipe && !isFirstOpenPopup && !isSecondOpenPopup) {
             handleMove(e, dispatch, startX);
         }
     };
 
-    const handleMouseUp = (e: React.MouseEvent) => {
+    const onEnd = () => {
         setIsGrabbed(false);
         handleEnd(dispatch, screenList, diff, current);
         setIsSwipe(true);
     };
 
-    const handlers = {
-        onTouchStart: handleTouchStart,
-        onTouchMove: handleTouchMove,
-        onTouchEnd: handleTouchEnd,
-        onMouseDown: handleMouseDown,
-        onMouseMove: handleMouseMove,
-        onMouseUp: handleMouseUp,
+    const handlers: Handlers = {
+        onTouchStart: onStart,
+        onTouchMove: onMove,
+        onTouchEnd: onEnd,
+        onMouseDown: onStart,
+        onMouseMove: onMove,
+        onMouseUp: onEnd,
     };
 
     return (
         <div className={["App", isGrabbed && "is-grabbed"].join(" ")} {...handlers}>
+            <MainPopup isOpen={isFirstOpenPopup} />
             <App
                 mainRef={mainRef}
                 anounceRef={anounceRef}

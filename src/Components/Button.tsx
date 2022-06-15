@@ -1,10 +1,5 @@
 import React, { FC } from "react";
-
-interface ButtonProps {
-    text: string;
-    icon: React.ReactNode;
-    onClick?: () => void;
-}
+import { ButtonProps } from "../types/types";
 
 const Button: FC<ButtonProps> = ({ text, icon, onClick }) => {
     return (
