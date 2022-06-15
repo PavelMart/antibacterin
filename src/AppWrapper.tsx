@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import App from "./App";
 import "./App.scss";
-import { setFirstOpened } from "./store/slide/slideSlice";
+import { setCurrent, setFirstOpened } from "./store/slide/slideSlice";
 import { useAppDispatch, useAppSelector } from "./store/store";
-import { handleEnd, handleMove, handleStart } from "./utils/swipe";
+import { handleEnd, handleMove, handleStart, moveTo } from "./utils/swipe";
 
 export interface ScreenProps {
     screenRef: React.RefObject<HTMLDivElement>;
@@ -19,7 +19,7 @@ export interface Screen {
 export type ScreenList = Screen[];
 
 function AppWrapper() {
-    const { current, isFirstOpened } = useAppSelector((state) => state.slide);
+    const { startX, diff, current, isFirstOpened } = useAppSelector((state) => state.slide);
     const [isGrabbed, setIsGrabbed] = useState(false);
     const [isSwipe, setIsSwipe] = useState(true);
 
@@ -37,36 +37,49 @@ function AppWrapper() {
 
     useEffect(() => {
         if (current === 1 && !isFirstOpened) dispatch(setFirstOpened());
+
+        moveTo(screenList, current, diff);
+
         // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [current]);
+    }, [current, diff]);
+
+    const onNextClick = () => {
+        dispatch(setCurrent(1));
+    };
+
+    const onHomeClick = () => {
+        dispatch(setCurrent(0));
+    };
 
     const handleTouchStart = (e: any) => {
         if (e.target?.closest(".scroll")) setIsSwipe(false);
-        else handleStart(e, screenList);
+        else handleStart(e, screenList, dispatch);
     };
 
     const handleTouchMove = (e: React.TouchEvent<Element>) => {
-        if (isSwipe) handleMove(e, screenList);
+        if (isSwipe) handleMove(e, dispatch, startX);
     };
 
     const handleTouchEnd = (e: React.TouchEvent) => {
-        handleEnd(e, screenList, dispatch);
+        handleEnd(dispatch, screenList, diff, current);
         setIsSwipe(true);
     };
 
     const handleMouseDown = (e: any) => {
         setIsGrabbed(true);
         if (e.target.closest(".scroll")) setIsSwipe(false);
-        handleStart(e, screenList);
+        handleStart(e, screenList, dispatch);
     };
 
     const handleMouseMove = (e: React.MouseEvent) => {
-        if (isGrabbed && isSwipe) handleMove(e, screenList);
+        if (isGrabbed && isSwipe) {
+            handleMove(e, dispatch, startX);
+        }
     };
 
     const handleMouseUp = (e: React.MouseEvent) => {
         setIsGrabbed(false);
-        handleEnd(e, screenList, dispatch);
+        handleEnd(dispatch, screenList, diff, current);
         setIsSwipe(true);
     };
 
@@ -81,7 +94,14 @@ function AppWrapper() {
 
     return (
         <div className={["App", isGrabbed && "is-grabbed"].join(" ")} {...handlers}>
-            <App mainRef={mainRef} anounceRef={anounceRef} offerRef={offerRef} isFirstOpened={isFirstOpened} screenList={screenList} />
+            <App
+                mainRef={mainRef}
+                anounceRef={anounceRef}
+                offerRef={offerRef}
+                isFirstOpened={isFirstOpened}
+                onNextClick={onNextClick}
+                onHomeClick={onHomeClick}
+            />
         </div>
     );
 }

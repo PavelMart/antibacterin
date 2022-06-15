@@ -1,13 +1,12 @@
 import React, { FC } from "react";
-import { Screen } from "../AppWrapper";
 import Button from "../Components/Button";
 
 interface Props {
     screenRef: React.RefObject<HTMLDivElement>;
-    screenList: Screen[];
+    onClick: () => void;
 }
 
-const Main: FC<Props> = ({ screenRef, screenList }) => {
+const Main: FC<Props> = ({ screenRef, onClick }) => {
     return (
         <div ref={screenRef} className={["screen", "main"].join(" ")}>
             <div className="bacteria bacteria_1_static" />
@@ -25,7 +24,7 @@ const Main: FC<Props> = ({ screenRef, screenList }) => {
                     <span>
                         Это <b>не</b> коммерческое задание
                     </span>
-                    <Button text="Что дальше?" icon={<div className="icon main__icon"></div>} />
+                    <Button text="Что дальше?" icon={<div className="icon main__icon"></div>} onClick={onClick} />
                 </div>
             </div>
         </div>

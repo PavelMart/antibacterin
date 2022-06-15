@@ -1,16 +1,19 @@
+import { AppDispatch } from "./../store/store";
 import { ScreenList } from "../AppWrapper";
-import { setSlide } from "../store/slide/slideSlice";
-import { AppDispatch } from "../store/store";
-
-let startX: number;
-let endX: number;
-let current: number = 0;
-let diff: number = 0;
+import { setCurrent, setDiff, setStartX } from "../store/slide/slideSlice";
 
 // обработка движения мыши или касания
-export const moveTo = (screenList: ScreenList, direction: "right" | "left", current: number, diff: number) => {
-    if (direction === "right") diff = -diff;
-    changeScreenStyle(screenList, "transform", "", current, diff);
+export const moveTo = (screenList: ScreenList, current: number, diff: number) => {
+    if (current >= 0 && current <= 2) {
+        // запрет на движение влево у первого слайда
+        if (current === 0 && diff < 0) return;
+
+        // запрет на движение вправо у последнего слайда
+        if (current === 2 && diff > 0) return;
+
+        // перемещение слайда
+        changeScreenStyle(screenList, "transform", "", current, -diff);
+    }
 };
 
 const changeScreenStyle = (screenList: ScreenList, property: "transition" | "transform", value: string, current: number, diff: number) => {
@@ -32,31 +35,25 @@ const changeTransform = (style: ElementCSSInlineStyle["style"], slide: number, c
 };
 
 // обработка первого касания
-export const handleStart = (e: any, screenList: ScreenList) => {
+export const handleStart = (e: any, screenList: ScreenList, dispatch: AppDispatch) => {
     changeScreenStyle(screenList, "transition", "", 0, 0);
 
-    startX = e.touches ? e.touches[0].clientX : e.clientX;
+    const startX = e.touches ? e.touches[0].clientX : e.clientX;
+
+    dispatch(setStartX(startX));
 };
 
 // обработка движения слайдов
-export const handleMove = (e: any, screenList: ScreenList) => {
-    endX = e.touches ? e.touches[0].clientX : e.clientX;
+export const handleMove = (e: any, dispatch: AppDispatch, startX: number) => {
+    const endX = e.touches ? e.touches[0].clientX : e.clientX;
 
-    diff = Math.abs(startX - endX);
-
-    if (startX < endX && current > 0) {
-        moveTo(screenList, "left", current, diff);
-    } else if (startX > endX && current < 2) {
-        moveTo(screenList, "right", current, diff);
-    }
+    dispatch(setDiff(startX - endX));
 };
 
 // обработка переключения слайдов
-export const handleEnd = (e: any, screenList: ScreenList, dispatch: AppDispatch) => {
-    if (diff > 0.3 * window.innerWidth && startX < endX && current > 0) current--;
-    if (diff > 0.3 * window.innerWidth && startX > endX && current < 2) current++;
-    dispatch(setSlide(current));
-    diff = 0;
+export const handleEnd = (dispatch: AppDispatch, screenList: ScreenList, diff: number, current: number) => {
+    if (Math.abs(diff) > 0.3 * window.innerWidth && diff < 0 && current > 0) dispatch(setCurrent(current - 1));
+    if (Math.abs(diff) > 0.3 * window.innerWidth && diff > 0 && current < 2) dispatch(setCurrent(current + 1));
+    dispatch(setDiff(0));
     changeScreenStyle(screenList, "transition", "transform 0.3s", 0, 0);
-    moveTo(screenList, "left", current, diff);
 };

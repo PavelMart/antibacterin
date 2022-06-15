@@ -15,6 +15,8 @@
 }
 
 .home {
+    cursor: pointer;
+
     position: absolute;
     left: 8.25rem;
     top: 3.2rem;
@@ -321,13 +323,66 @@
         background-image: url("./assets/img/anounce/bacteria_5.png");
     }
 
-    &__text {
-        margin-left: 15rem;
-        margin-bottom: 12rem;
-    }
     &__h1 {
         margin-left: 16rem;
         margin-bottom: 2rem;
+    }
+
+    &__text {
+        margin-left: 15rem;
+        margin-bottom: 5rem;
+    }
+
+    &__body {
+        z-index: 1;
+        position: relative;
+    }
+
+    .button {
+        position: relative;
+        grid-area: c;
+        bottom: 0;
+        right: 0;
+    }
+
+    .icon {
+        position: relative;
+        &::after,
+        &::before {
+            position: absolute;
+            content: "";
+            width: 2px;
+            height: 30%;
+            top: calc(35%);
+            left: calc(50% - 1px);
+            background-color: #fff;
+        }
+        &::before {
+            transform: rotate(90deg);
+        }
+    }
+
+    .adv {
+        display: grid;
+        grid-template-areas: "a b" "a c";
+        gap: 5rem;
+
+        &__a,
+        &__b {
+            font-family: "DINPro";
+            font-size: 3rem;
+            border-radius: 5rem;
+            background-color: #fff;
+            box-shadow: 1rem 1rem 15rem rgba($color: #9db9c6, $alpha: 0.4);
+        }
+        &__a {
+            grid-area: a;
+            padding: 6.25rem 6.25rem 8rem 16rem;
+        }
+        &__b {
+            grid-area: b;
+            padding: 5rem;
+        }
     }
 }
 
@@ -343,6 +398,7 @@
 }
 
 .button {
+    cursor: pointer;
     position: absolute;
     bottom: 2rem;
     right: 8rem;

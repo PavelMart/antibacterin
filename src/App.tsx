@@ -1,6 +1,5 @@
 import React, { FC } from "react";
 import "./App.scss";
-import { Screen } from "./AppWrapper";
 import Home from "./Components/Home";
 import Logo from "./Components/Logo";
 import Anounce from "./pages/Anounce";
@@ -12,15 +11,16 @@ interface AppProps {
     anounceRef: React.RefObject<HTMLDivElement>;
     offerRef: React.RefObject<HTMLDivElement>;
     isFirstOpened: boolean;
-    screenList: Screen[];
+    onNextClick: () => void;
+    onHomeClick: () => void;
 }
 
-const App: FC<AppProps> = ({ mainRef, anounceRef, offerRef, isFirstOpened, screenList }) => {
+const App: FC<AppProps> = ({ mainRef, anounceRef, offerRef, isFirstOpened, onNextClick, onHomeClick }) => {
     return (
         <>
-            <Home />
+            <Home onClick={onHomeClick} />
             <div className="swipe">
-                <Main screenRef={mainRef} screenList={screenList} />
+                <Main screenRef={mainRef} onClick={onNextClick} />
                 <Anounce screenRef={anounceRef} isFirstOpened={isFirstOpened} />
                 <Offer screenRef={offerRef} />
             </div>
