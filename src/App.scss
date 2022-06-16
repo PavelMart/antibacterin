@@ -136,7 +136,6 @@
         top: 7.8rem;
         right: 27rem;
         background-image: url("./assets/img/main/bacteria_6.png");
-        animation: bacteria_1 30s linear infinite;
     }
 
     .bacteria_7_animate {
@@ -149,7 +148,6 @@
         offset-path: path(
             "m52.1,130.5c30.2,-16.7 71.6,5 85.2,23.9c13.6,18.8 24.2,38.1 57.9,42.9c33.7,4.7 75.3,-103.1 1.6,-78.7c-73.6,24.3 -68.8,63.8 -121.1,71.7c-52.2,7.8 -53.9,-43 -23.7,-59.7z"
         );
-        animation: bacteria_2 45s infinite linear;
     }
 
     .bacteria_8_animate {
@@ -158,7 +156,6 @@
         bottom: 24rem;
         left: 3rem;
         background-image: url("./assets/img/main/bacteria_8.png");
-        animation: bacteria_3 30s linear infinite;
     }
 
     .bacteria_9_animate {
@@ -167,7 +164,6 @@
         bottom: -12rem;
         right: 32rem;
         background-image: url("./assets/img/main/bacteria_9.png");
-        animation: bacteria_4 45s linear infinite;
     }
 }
 
@@ -235,23 +231,13 @@
         }
     }
 
-    .bacteria {
-        transform: translate(10rem, 10rem) scale(0, 0);
-        opacity: 0;
-    }
-
     &.first_opened {
-        .bacteria {
-            transform: none;
-            opacity: 1;
-        }
         .bacteria_1_animate {
             width: 142rem;
             height: 66rem;
             top: 12.5rem;
             right: -60rem;
             background-image: url("./assets/img/anounce/bacteria_1.png");
-            animation: bacteria_5 2s ease;
         }
         .bacteria_2_animate {
             width: 91rem;
@@ -259,7 +245,6 @@
             top: 12rem;
             right: -36rem;
             background-image: url("./assets/img/anounce/bacteria_2.png");
-            animation: bacteria_5 2.5s ease;
         }
         .bacteria_3_animate {
             width: 52rem;
@@ -267,7 +252,6 @@
             top: 9.25rem;
             right: -12.5rem;
             background-image: url("./assets/img/anounce/bacteria_3.png");
-            animation: bacteria_5 3s ease;
         }
         .bacteria_4_animate {
             width: 91rem;
@@ -275,7 +259,6 @@
             top: 51.5rem;
             right: -74.5rem;
             background-image: url("./assets/img/anounce/bacteria_2.png");
-            animation: bacteria_5 2s ease;
         }
         .bacteria_5_animate {
             width: 41rem;
@@ -283,6 +266,20 @@
             bottom: 12rem;
             right: -23.5rem;
             background-image: url("./assets/img/anounce/bacteria_5.png");
+        }
+        .bacteria_1_animate {
+            animation: bacteria_5 2s ease;
+        }
+        .bacteria_2_animate {
+            animation: bacteria_5 2.5s ease;
+        }
+        .bacteria_3_animate {
+            animation: bacteria_5 3s ease;
+        }
+        .bacteria_4_animate {
+            animation: bacteria_5 2s ease;
+        }
+        .bacteria_5_animate {
             animation: bacteria_5 2s ease;
         }
     }
@@ -502,7 +499,6 @@
         left: 10rem;
         z-index: 2;
         background-image: url("./assets/img/offer/1.png");
-        animation: bubble_1 15s ease-in-out infinite;
     }
 
     .bubble_2 {
@@ -512,7 +508,6 @@
         left: 23rem;
         z-index: 2;
         background-image: url("./assets/img/offer/2.png");
-        animation: bubble_2 7s linear infinite;
     }
 
     .bubble_3 {
@@ -699,6 +694,52 @@
     }
 }
 
+.animate {
+    &.main {
+        .bacteria_6_animate {
+            animation: bacteria_1 30s linear infinite;
+        }
+
+        .bacteria_7_animate {
+            animation: bacteria_2 45s infinite linear;
+        }
+
+        .bacteria_8_animate {
+            animation: bacteria_3 30s linear infinite;
+        }
+
+        .bacteria_9_animate {
+            animation: bacteria_4 45s linear infinite;
+        }
+    }
+    &.offer {
+        .bubble_1 {
+            animation: bubble_1 15s ease-in-out infinite;
+        }
+        .bubble_2 {
+            animation: bubble_2 7s linear infinite;
+        }
+        .bubble_3 {
+            animation: bubble_3 30s linear infinite;
+        }
+        .bubble_4 {
+            animation: bubble_4 30s ease-in-out infinite;
+        }
+        .bubble_5 {
+            animation: bubble_5 15s ease-in-out infinite;
+        }
+        .bubble_6 {
+            animation: bubble_6 45s ease-in-out infinite;
+        }
+        .bubble_7 {
+            animation: bubble_7 20s ease-in-out infinite;
+        }
+        .bubble_8 {
+            animation: bubble_8 50s linear infinite;
+        }
+    }
+}
+
 @keyframes bacteria_1 {
     0% {
         transform: translate(0, 0) scale(1, 1);
@@ -803,6 +844,78 @@
     }
     100% {
         transform: translate(0, 0) scale(1, 1);
+    }
+}
+
+@keyframes bubble_3 {
+    0% {
+        transform: rotate(0deg) translateX(3rem) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(4rem) rotate(-360deg);
+    }
+}
+
+@keyframes bubble_4 {
+    0% {
+        transform: rotate(0deg) translateX(3rem) rotate(0deg);
+    }
+    25% {
+        transform: rotate(360deg) translateX(0rem) rotate(-360deg);
+    }
+    50% {
+        transform: rotate(0deg) translateX(-3rem) rotate(0deg);
+    }
+    75% {
+        transform: rotate(360deg) translateX(0rem) rotate(-360deg);
+    }
+    100% {
+        transform: rotate(0deg) translateX(3rem) rotate(0deg);
+    }
+}
+
+@keyframes bubble_5 {
+    0% {
+        transform: rotate(0deg) translateX(0) rotate(0deg);
+    }
+    50% {
+        transform: rotate(180deg) translateX(8rem) rotate(-180deg);
+    }
+}
+
+@keyframes bubble_6 {
+    0% {
+        transform: rotate(0deg) translateX(0) rotate(0deg) scale(1, 1);
+    }
+    50% {
+        transform: rotate(-180deg) translateX(8rem) rotate(180deg) scale(1.3, 1.3);
+    }
+}
+
+@keyframes bubble_7 {
+    0% {
+        transform: rotate(0deg) translateX(2rem) rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg) translateX(3rem) rotate(-360deg);
+    }
+}
+
+@keyframes bubble_8 {
+    0% {
+        transform: rotate(0deg) translateX(3rem) rotate(0deg) scale(1, 1);
+    }
+    25% {
+        transform: rotate(360deg) translateX(0rem) rotate(-360deg);
+    }
+    50% {
+        transform: rotate(0deg) translateX(-3rem) rotate(0deg) scale(1.5, 1.5);
+    }
+    75% {
+        transform: rotate(360deg) translateX(0rem) rotate(-360deg);
+    }
+    100% {
+        transform: rotate(0deg) translateX(3rem) rotate(0deg) scale(1, 1);
     }
 }
 

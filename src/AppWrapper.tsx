@@ -40,7 +40,11 @@ function AppWrapper() {
         screenList.forEach(({ ref, slide }) => {
             if (ref.current) {
                 ref.current.style.display = "";
-                if (Math.abs(slide - current) === 2) ref.current.style.display = "none";
+                ref.current.classList.add("animate");
+                if (Math.abs(slide - current) === 2) {
+                    ref.current.style.display = "none";
+                    ref.current.classList.remove("animate");
+                }
             }
         });
 
@@ -48,7 +52,7 @@ function AppWrapper() {
     }, [current, diff]);
 
     const resize = () => {
-        if (window.innerWidth === 1024 && window.innerHeight === 768) {
+        if (window.innerWidth / window.innerHeight === 4 / 3) {
             dispatch(openFirstPopup(false));
         } else {
             dispatch(openFirstPopup(true));
